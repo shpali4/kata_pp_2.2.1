@@ -18,7 +18,7 @@ public class UserServiceImp implements UserService {
    @Transactional
    @Override
    public void addNewUserInList(User user, Car car) {
-      userDao.add(user, car);
+      userDao.addNewUserInList(user, car);
    }
 
    @Transactional
@@ -30,7 +30,7 @@ public class UserServiceImp implements UserService {
    @Transactional(readOnly = true)
    @Override
    public List<User> showListOfUsers() {
-      return userDao.listUsers();
+      return userDao.showListOfUsers();
    }
 
 }

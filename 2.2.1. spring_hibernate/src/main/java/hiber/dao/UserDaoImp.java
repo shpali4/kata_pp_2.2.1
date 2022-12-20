@@ -17,16 +17,10 @@ public class UserDaoImp implements UserDao {
    private SessionFactory sessionFactory;
 
    @Override
-   public void add(User user, Car car) {
+   public void addNewUserInList(User user, Car car) {
       user.setCar(car);
       sessionFactory.getCurrentSession().save(user);
    }
-
-   @Override
-   public void add(User user) {
-      sessionFactory.getCurrentSession().save(user);
-   }
-
    @Override
    public User searchByModelAndSeries(String model, int series) {
       Query query = sessionFactory.getCurrentSession().createQuery("from User user where " +
@@ -37,8 +31,7 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   @SuppressWarnings("unchecked")
-   public List<User> listUsers() {
+   public List<User> showListOfUsers() {
       TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
       return query.getResultList();
    }
